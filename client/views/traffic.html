@@ -1,0 +1,193 @@
+<md-content style="background: #eee !important;">
+    <!-- toolbar -->
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Final Solution</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <!-- end toolbar -->
+    <br/>
+    <!-- main content -->
+    <md-content layout-padding=""  style="background: #eee !important;">
+        <!-- row -->
+        <div layout="row" layout-align="space-around">
+            <!-- Controls Card Sliders-->
+            <md-card flex="40">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>
+                            <span>Controls</span>
+                        </h2>
+                    </div>
+                </md-toolbar>
+                <md-card-content>
+                    <br/>
+                    <div layout>
+                        <div flex="15" layout layout-align="center center">
+                            <span>Bar</span>
+                        </div>
+                        <md-slider flex md-discrete step="1" min="1" max="10" aria-label="" ng-model="sliderModel">
+                        </md-slider>
+                    </div>
+                    <br/>
+                    <div layout>
+                        <div flex="15" layout layout-align="center center">
+                            <span>Round Progress</span>
+                        </div>
+                        <md-slider flex md-discrete step="1" min="1" max="100" aria-label="" ng-model="roundProgressData.label">
+                        </md-slider>
+                    </div>
+                </md-card-content>
+            </md-card>
+            <!-- Graph Card -->
+            <md-card flex="40">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>
+                            <span>Graphics</span>
+                        </h2>
+                    </div>
+                </md-toolbar>
+                <md-card-content class="text-center">
+                    <p>Bar Graph</p>
+                    <div d3-bars bar-height="20" bar-padding="5" data="data"></div>
+
+                    <md-divider></md-divider>
+                    <br/>
+                    <p>Round Progress</p>
+
+                    <div d3-round-progress data-round-progress-model="roundProgressData"
+                         data-round-progress-width="250"
+                         data-round-progress-height="250"
+                         data-round-progress-outer-circle-width="20"
+                         data-round-progress-inner-circle-width="5"
+                         data-round-progress-outer-circle-radius="100"
+                         data-round-progress-inner-circle-radius="70"
+                         data-round-progress-label-font="50pt Arial"
+                         data-round-progress-outer-circle-background-color="#505769"
+                         data-round-progress-outer-circle-foreground-color="#FF4081"
+                         data-round-progress-inner-circle-color="#3F51B5"
+                         data-round-progress-label-color="#000">
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</md-content>
+
+
+
+
+
+<!--
+<md-content>
+
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Final Solution</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+
+
+    <md-content layout-padding layout-align="space-around center">
+
+        <div layout="column" layout-gt-md="row">
+            <md-card flex>
+                <md-card-content>
+                    <div layout layout-align="center center" class="md-title">
+                        <span><strong>¿Qué tanto nos afectan los conductores garra en nuestros tiempos de viaje?</strong></span>
+                    </div>
+
+                    <br/>
+                    <p>
+                        Este juguete busca medir el impacto que los conductores de automóviles pueden producir sobre la movilidad de una ciudad al no acatar las señales de pare de forma cívica.
+
+                    </p>
+                    <br/>
+                    <p> Evaluaremos si se da un aumento en los tiempos de viaje a nivel de la ciudadanía cuando se introducen conductores que no respetan la prelación de otros en las intersecciones,
+                        o que aun cuando tienen prelación, bloquean intersecciones por no esperar hasta poder hacer el cruce completo.
+                    </p>
+
+                </md-card-content>
+            </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <div layout layout-align="center center" class="md-title">
+                        <span><strong>Ajuste la prevalencia de la garredad</strong></span>
+                    </div>
+
+                    <br/>
+                    <p>
+                        Los usuarios podrán modificar la cantidad de conductores 'garra' (es decir, no cívicos)
+                        que harán parte de una simulación sencilla de tráfico, observar cómo varían los patrones de tránsito,
+                        y obtener un resumen de la variación en los tiempos de viaje de la ciudadanía, seguido de un conciso análisis final.
+                    </p>
+                    <br/>
+                    <p>
+                        Mueva la barra hacia la derecha para aumentar la proporción de ciudadanos que no acatan la señal de pare cívicamente.
+                    </p>
+
+
+                    <md-slider class="md-warn" flex md-discrete step="1" min="1" max="10" aria-label="" ng-model="dashboardCtrl.sliderModel">
+                    </md-slider>
+                    <md-button class="md-raised md-primary"
+                               ng-click="dashboardCtrl.getClawfullByRate(dashboardCtrl.sliderModel);">
+                        ACTUALIZAR
+                    </md-button>
+                </md-card-content>
+            </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <div layout layout-align="center center" class="md-title">
+                        <span><strong>“Resumen: tiempos de viaje”</strong></span>
+                    </div>
+
+                    <br/>
+                    <p>
+                        Cada barra verde representa el tiempo de viaje para cada ciudadano en ausencia de conductores garra,
+                        mientras las barras rojas denotan el escenario plagado de los garras introducidos por el usuario.
+                    </p>
+
+                    <div ng-if="dashboardCtrl.spinner == true" layout="row" layout-sm="column" layout-align="space-around">
+                        <md-progress-circular md-mode="indeterminate" class="md-warn"></md-progress-circular>
+                    </div>
+                    <canvas ng-if="dashboardCtrl.spinner == false" id="line" class="chart chart-bar" chart-data="dashboardCtrl.result_array" chart-labels="dashboardCtrl.labels"
+                            chart-legend="true" chart-series="dashboardCtrl.series"></canvas>
+                </md-card-content>
+            </md-card>
+        </div>
+
+        <div layout-md="column" layout-gt-md="row">
+            <md-card flex>
+                <md-card-content>
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=placeholder&w=380&h=250" alt=""/>
+                </md-card-content>
+            </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <div ng-if="dashboardCtrl.spinner == true" layout="row" layout-sm="column" layout-align="space-around">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    </div>
+                    <canvas ng-if="dashboardCtrl.spinner == false" id="line2" class="chart chart-line"
+                            chart-data="dashboardCtrl.result_array"
+                            chart-labels="dashboardCtrl.labels"
+                            chart-legend="true"
+                            chart-series="dashboardCtrl.series">
+                    </canvas>
+                </md-card-content>
+            </md-card>
+            <md-card flex>
+                <md-card-content>
+                    <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=placeholder&w=380&h=250" alt=""/>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</md-content>
+-->

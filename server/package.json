@@ -1,0 +1,30 @@
+{
+  "name": "final-solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lejoss/final-solution.git"
+  },
+  "keywords": [],
+  "author": "lejoss",
+  "license": "copyrigth",
+  "bugs": {
+    "url": "https://github.com/lejoss/final-solution/issues"
+  },
+  "homepage": "https://github.com/lejoss/final-solution#readme",
+  "devDependencies": {
+    "morgan": "1.6.1"
+  },
+  "dependencies": {
+    "body-parser": "1.14.1",
+    "express": "4.13.3",
+    "lodash": "3.10.1",
+    "pg": "4.4.3",
+    "superagent": "1.4.0"
+  }
+}

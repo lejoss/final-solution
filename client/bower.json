@@ -1,0 +1,28 @@
+{
+  "name": "final-solution",
+  "version": "1.0.0",
+  "authors": [
+    "lejoss <nativo.alejandro@gmail.com>"
+  ],
+  "description": "front end dependencies for final-solution",
+  "license": "NA",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.4.0",
+    "lodash": "~3.10.1",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "ui-router": "~0.2.13",
+    "jquery-ui": "~1.11.4",
+    "angular-animate": "^1.4.0",
+    "d3": "~3.5.9",
+    "angular-material": "~0.11.4",
+    "angular-chart.js": "~0.8.6"
+  }
+}

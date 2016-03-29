@@ -1,0 +1,115 @@
+<md-content>
+    <!-- toolbar -->
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools">
+            <h2>
+                <span>Final Solution</span>
+            </h2>
+            <span flex></span>
+        </div>
+    </md-toolbar>
+    <!-- end toolbar -->
+    <!-- dashboard layout -->
+    <md-content layout-padding="">
+        <div layout-gt-md="row" layout="column">
+            <div layout="row" flex="30">
+                <div layout="column">
+                    <md-card>
+                        <md-card-content>
+                            <div layout layout-align="center center" class="md-title">
+                                <span><strong>¿Qué tanto nos afectan los conductores garra en nuestros tiempos de viaje?</strong></span>
+                            </div>
+                            <br/>
+                            <p>
+                                Este juguete busca medir el impacto que los conductores de automóviles pueden producir sobre
+                                la movilidad de una ciudad al no acatar las señales de pare de forma cívica.
+                            </p>
+                            <br/>
+                            <p>
+                                Evaluaremos si se da un aumento en los tiempos de viaje a nivel de la ciudadanía cuando se
+                                introducen conductores que:
+                            </p>
+                            <br/>
+                            <ul>
+                                <li>No respetan la prelación de otros conductores en las intersecciones. </li>
+                                <li>Bloquean intersecciones al no esperar hasta poder hacer el cruce completo.</li>
+                            </ul>
+                            <br/>
+                            <p>
+                                Los usuarios podrán modificar la cantidad de conductores 'garra' (es decir, no cívicos) en una sencilla simulación de tráfico, observar cambios en los patrones de tránsito, y obtener un resumen de la variación en los tiempos de viaje de la ciudadanía, seguido de un sucinto análisis final.
+                            </p>
+                            <div style="padding-top: 4.5em"></div>
+                            <p><em>Final Solution 2015</em></p>
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </div>
+            <div layout="column"  flex="35">
+                <div layout="row">
+                    <!-- slider card -->
+                    <md-card flex>
+                        <md-card-content>
+                            <div layout layout-align="center center" class="md-title">
+                                <span><strong>Ajuste la prevalencia de la garredad</strong></span>
+                            </div>
+                            <br/>
+                            <p>
+                                Mueva la barra hacia la derecha para aumentar la proporción de ciudadanos que no acatan la señal de pare cívicamente.
+                            </p>
+                            <br/>
+                            <div style="padding-top: 8px"></div>
+                            <md-slider class="md-warn" flex md-discrete step="1" min="1" max="10" aria-label="" ng-model="dashboardCtrl.sliderModel">
+                            </md-slider>
+                            <md-button class="md-raised md-primary"
+                                       ng-click="dashboardCtrl.getClawfullByRate(dashboardCtrl.sliderModel);">
+                                ACTUALIZAR
+                            </md-button>
+                        </md-card-content>
+                    </md-card>
+                </div>
+                <div layout="row">
+                    <md-card flex>
+                        <md-card-content>
+                            <img class="img-responsive" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=placeholder&w=380&h=250" alt=""/>
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </div>
+            <div layout="column" flex="35">
+                <md-card>
+                    <md-card-content>
+                        <p class="md-title">
+                            <strong>Tiempos de viaje con y sin conductores garra</strong>
+                        </p>
+                        <div ng-if="dashboardCtrl.spinner == true" layout="row" layout-sm="column" layout-align="space-around">
+                            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                        </div>
+                        <canvas ng-if="dashboardCtrl.spinner == false" id="line2"
+                                class="chart chart-line"
+                                chart-data="dashboardCtrl.result_array"
+                                chart-labels="dashboardCtrl.labels"
+                                chart-legend="true"
+                                chart-series="dashboardCtrl.series">
+                        </canvas>
+
+                    </md-card-content>
+                </md-card>
+                <md-card>
+                    <md-card-content>
+                        <p>
+                            En la gráfica anterior, cada barra verde representa el tiempo de viaje para cada ciudadano en ausencia de conductores garra, mientras las barras rojas denotan el escenario plagado de los conductores garra introducidos por el usuario.
+                        </p>
+                        <br/>
+                        <p>
+                            El núcleo del análisis está en el retraso que un conductor cualquiera experimenta cuando otros bloquean la intersección en su turno y, más importante aún, el efecto dominó sobre los vehículos que lo siguen, además del efecto acumulativo al tener episodios garra en varios lugares y momentos.
+                        </p>
+                        <br/>
+                        <p>
+                            ¿Cuántos carros se necesitan para observar un efecto dominó y acumulativo? ¿Cuántos ‘conductores garra’ se necesitan para percibir un efecto? ¿Es contagiosa la garredad? Vea nuestro editorial al respecto.
+                        </p>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+    </md-content>
+</md-content>
