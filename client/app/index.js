@@ -26,8 +26,9 @@ class App extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', this.handleResize)
     }
+
     componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener('resize', this.handleResize)
     }
 
     handleResize() {
@@ -36,20 +37,13 @@ class App extends React.Component {
                 width: document.documentElement.clientWidth,
                 height: document.documentElement.clientHeight
             }
-
-        })
-
-        //console.log(this.state.viewport.width)
-        //console.log(this.state.viewport.height)
+        });
 
     }
 
     render() {
-        console.log(this.state.viewport.width)
-
-        //console.log(viewport)
-
-        return(
+        let widthScreen = this.state.viewport.width
+        return (
             <div>
                 <div className={mainCSS.container} style={{background:"#f5f5f5"}}>
                     <div style={{display: "flex", flex: "0 0 170px", background: "#E2E2E1"}}>
@@ -59,8 +53,21 @@ class App extends React.Component {
                     <div className={styles.wrapper}>
 
                         <div className={styles.left_panel} >
+                            <div style={{display: widthScreen < 480 ? "none" : "flex", background:"#eee", flex:1, margin:"5px"}}></div>
                             <div style={{display:"flex", flex:1, background:"#eee", margin:"5px"}}></div>
-                            <div style={{display:"flex", flex:1, background:"#eee", margin:"5px"}}></div>
+                        </div>
+
+                        <div className={styles.dashboard}>
+                            <div className={styles.col}>
+                                <div style={{border:"1px solid #222",flex:1}}></div>
+                                <div style={{border:"1px solid #222", flex:1}}></div>
+                            </div>
+
+                            <div className={styles.col} style={{display: widthScreen < 768 ? "none" : "flex"}}>
+                                <div style={{border:"1px solid #222", flex:1}}></div>
+                                <div style={{border:"1px solid #222", flex:1}}></div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -69,12 +76,11 @@ class App extends React.Component {
                 <div className={styles.col}  style={{height:"100vh"}}>
                 </div>
             </div>
-
         )
     }
-
-
 }
+
+
 
 //<div className={styles.col}  style={{ flex:"0 0 75%", margin:"-75px 0 auto 15px"}}>
 //

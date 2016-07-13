@@ -1,7 +1,11 @@
 .dashboard {
     display: flex;
     flex:1;
-    flex-flow: row wrap;
+    flex-direction: row;
+    border:1px solid #aaa;
+    margin: 5px;
+    padding:8px;
+
 }
 
 .left_panel {
@@ -20,12 +24,35 @@
     height: 80%;
 }
 
-@media (max-width: 768px) {
+.col {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+}
+
+
+@media (max-width: 480px) {
     body {
         font-size: 1.0em;
     }
 
     .left_panel {
         flex: 1;
+    }
+
+    .wrapper, .dashboard {
+        flex-direction: column;
+
+    }
+
+}
+
+@media (max-width: 768px) {
+    .left_panel {
+        flex: 0 0 30%;
+    }
+
+    .hide_ {
+        display: none;
     }
 }
