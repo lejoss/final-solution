@@ -1,5 +1,11 @@
+*{
+    box-sizing: border-box;
+}
+
 html {
     height: 100%;
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
 }
 
 body {
@@ -7,4 +13,38 @@ body {
     height: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    background: #eee;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+
+.p {
+    color: #424242;
+    letter-spacing:0.1em;
+    text-align:center;
+    margin: 40px auto;
+    text-transform: lowercase;
+    line-height: 145%;
+    font-size: 14pt;
+    font-variant: small-caps;
+}
+
+.p2 {
+
+    color: #424242;
+    font-weight: normal;
+    font-size: 1.75em;
+    letter-spacing: .2em;
+    line-height: 1.1em;
+    margin:0px;
+    text-align: center;
+    text-transform: uppercase;
+
 }

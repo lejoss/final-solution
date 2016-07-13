@@ -1,0 +1,14 @@
+Este juguete busca medir el impacto que los conductores de automóviles pueden producir sobre
+la movilidad de una ciudad al no acatar las señales de pare de forma cívica.
+
+Evaluaremos si se da un aumento en los tiempos de viaje a nivel de la ciudadanía cuando se
+introducen conductores que:
+
+No respetan la prelación de otros conductores en las intersecciones.
+Bloquean intersecciones al no esperar hasta poder hacer el cruce completo.
+
+Los usuarios podrán modificar la cantidad de conductores 'garra' (es decir, no cívicos) en una sencilla simulación de tráfico, observar cambios en los patrones de tránsito, y obtener un resumen de la variación en los tiempos de viaje de la ciudadanía, seguido de un sucinto análisis final.
+
+Ajuste la prevalencia de la garredad
+
+Mueva la barra hacia la derecha para aumentar la proporción de ciudadanos que no acatan la señal de pare cívicamente.
